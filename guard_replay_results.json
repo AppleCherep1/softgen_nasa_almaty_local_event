@@ -1,0 +1,134 @@
+{
+  "method": "Replay of ONLY the 5 failed recorded responses of the prior prompt. No model was run. Originally passed responses were not supplied and cannot be checked for new guard regressions.",
+  "recorded_failures": 5,
+  "corrected_in_replay": 4,
+  "rows": [
+    {
+      "id": "ru_01",
+      "raw_facts": [
+        {
+          "field": "responsive",
+          "value": "no",
+          "evidence": "Он не отвечает"
+        },
+        {
+          "field": "normal_breathing",
+          "value": "yes",
+          "evidence": "дышит"
+        }
+      ],
+      "guarded_facts": [
+        {
+          "field": "responsive",
+          "value": "no",
+          "evidence": "Он не отвечает"
+        }
+      ],
+      "warnings": [
+        {
+          "field": "normal_breathing",
+          "value": "unknown",
+          "evidence": "дышит",
+          "reason": "breath",
+          "original_value": "yes"
+        }
+      ],
+      "remaining_errors": {}
+    },
+    {
+      "id": "control_ru_01",
+      "raw_facts": [
+        {
+          "field": "normal_breathing",
+          "value": "no",
+          "evidence": "качество дыхания не оценивали"
+        }
+      ],
+      "guarded_facts": [],
+      "warnings": [
+        {
+          "field": "normal_breathing",
+          "value": "unknown",
+          "evidence": "качество дыхания не оценивали",
+          "reason": "unsure",
+          "original_value": "no"
+        }
+      ],
+      "remaining_errors": {}
+    },
+    {
+      "id": "control_en_01",
+      "raw_facts": [
+        {
+          "field": "responsive",
+          "value": "no",
+          "evidence": "He is asleep"
+        }
+      ],
+      "guarded_facts": [],
+      "warnings": [
+        {
+          "field": "responsive",
+          "value": "unknown",
+          "evidence": "He is asleep",
+          "reason": "react",
+          "original_value": "no"
+        }
+      ],
+      "remaining_errors": {}
+    },
+    {
+      "id": "control_en_06",
+      "raw_facts": [
+        {
+          "field": "responsive",
+          "value": "no",
+          "evidence": "does not respond to touch"
+        }
+      ],
+      "guarded_facts": [
+        {
+          "field": "responsive",
+          "value": "no",
+          "evidence": "does not respond to touch"
+        }
+      ],
+      "warnings": [
+        {
+          "field": "normal_breathing",
+          "value": "unknown",
+          "evidence": "only gasping",
+          "reason": "missing_critical",
+          "original_value": "omitted"
+        }
+      ],
+      "remaining_errors": {
+        "normal_breathing": {
+          "expected": "no",
+          "actual": "unknown"
+        }
+      }
+    },
+    {
+      "id": "control_en_10",
+      "raw_facts": [
+        {
+          "field": "normal_breathing",
+          "value": "yes",
+          "evidence": "He is breathing"
+        }
+      ],
+      "guarded_facts": [],
+      "warnings": [
+        {
+          "field": "normal_breathing",
+          "value": "unknown",
+          "evidence": "He is breathing",
+          "reason": "breath",
+          "original_value": "yes"
+        }
+      ],
+      "remaining_errors": {}
+    }
+  ]
+}

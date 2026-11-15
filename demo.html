@@ -1,0 +1,57 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><title>Crew AI — локальный модуль</title>
+<style>body{background:#101925;color:#e5eef8;font:17px system-ui;max-width:800px;margin:35px auto;padding:20px}textarea,select,button{font:inherit;padding:10px;margin:6px;background:#233448;color:inherit;border:1px solid #7398b8;border-radius:6px}textarea{width:95%}pre{white-space:pre-wrap}label{display:block}small{color:#b8c8d8}</style>
+<h1>Crew AI · извлечение фактов</h1><p>Локальный исследовательский прототип. Доступен учебный сценарий с источниками; утверждённый бортовой протокол не подключён.</p>
+<label>Среда пациента <select id="environment"><option value="unknown">Не указана</option><option value="microgravity">Микрогравитация · МКС / перелёт</option><option value="moon_surface">Поверхность Луны</option><option value="mars_surface">Поверхность Марса</option><option value="earth_surface">Поверхность Земли</option><option value="artificial_gravity">Искусственная гравитация</option></select></label><small>При смене среды начинается новый эпизод. Перелёт к Марсу не означает гравитацию поверхности Марса.</small>
+<details><summary>Связь и оборудование текущего эпизода</summary>
+<p>Укажите фактическое состояние. По умолчанию всё неизвестно. Изменение начинает новый эпизод.</p>
+<label>Связь <select id="link"><option value="unknown">Неизвестно</option><option value="unavailable">Связи нет</option><option value="available_delayed">Есть с задержкой</option></select></label>
+<div id="equipment"></div></details>
+<textarea id="text" rows="3">Он не отвечает, но дышит. Дефибриллятор разряжен.</textarea><button id="extract">Разобрать сообщение</button><p id="status"></p><div id="facts"></div><button id="confirm" disabled>Подтвердить / исправить факты</button><button id="export">Экспорт журнала</button><section id="dialog" aria-live="polite"></section><details><summary>Технические данные</summary><pre id="result"></pre></details>
+<script>
+let sid,pid; const fields=['responsive','normal_breathing','chest_pain','aed_ready','medic_present','bleeding','choking'];const names=['Реакция','Нормальное дыхание','Боль в груди','AED готов рядом','Медик рядом','Кровотечение','Подавился'];
+const $=id=>document.getElementById(id);
+async function api(path,data){const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});const j=await r.json();if(!r.ok)throw Error(j.error);return j;}
+const equipmentNames={aed:'AED: рядом и готов',cmrs:'CMRS: система фиксации доступна и готова',isolated_surface:'Безопасная электрически изолированная поверхность подтверждена'};
+for(const [id,name] of Object.entries(equipmentNames)){
+ const label=document.createElement('label');label.append(name+' ');
+ const select=document.createElement('select');select.id='eq_'+id;
+ [['unknown','Неизвестно'],['yes','Да'],['no','Нет']].forEach(([v,t])=>select.add(new Option(t,v)));label.append(select);
+ if(id==='aed'){for(const [key,placeholder] of [['model','Модель AED'],['location','Где находится']]){const input=document.createElement('input');input.id='eq_aed_'+key;input.placeholder=placeholder;input.maxLength=160;label.append(input);}}
+ $('equipment').append(label);
+}
+function getEquipment(){return Object.fromEntries(Object.keys(equipmentNames).map(id=>[id,{ready:$('eq_'+id).value,...(id==='aed'?{model:$('eq_aed_model').value,location:$('eq_aed_location').value}:{})}]));}
+async function session(){if(!sid)sid=(await api('/session',{mission_context:{environment:$('environment').value,link:$('link').value},equipment:getEquipment()})).session_id;}
+$('text').oninput=()=>{pid=null;$('confirm').disabled=true;$('dialog').replaceChildren();$('status').textContent='Текст изменён. Выполните новый разбор.';};
+$('environment').onchange=()=>{sid=null;pid=null;$('confirm').disabled=true;$('facts').replaceChildren();$('result').textContent='';$('dialog').replaceChildren();$('status').textContent='Среда изменена. Начните новый разбор.';};
+for(const el of [...$('equipment').querySelectorAll('select,input'),$('link')])el.onchange=()=>$('environment').onchange();
+$('extract').onclick=async()=>{ $('confirm').disabled=true;$('extract').disabled=true;$('dialog').replaceChildren();$('status').textContent='Обработка локальной моделью…';try{await session();const r=await api('/extract',{session_id:sid,text:$('text').value});pid=r.proposal_id;$('status').textContent=r.status==='manual_required'?'Модель недоступна или ответ отклонён. Ручной ввод — это не результат ИИ.':'Проверьте каждое наблюдение. Факты пока не подтверждены.';$('facts').replaceChildren();fields.forEach((f,i)=>{const label=document.createElement('label');label.append(names[i]+' ');const select=document.createElement('select');select.id=f;[['unknown','Неизвестно'],['yes','Да'],['no','Нет']].forEach(([v,t])=>select.add(new Option(t,v)));const fact=r.facts.find(x=>x.field===f);select.value=fact?.value||'unknown';label.append(select);if(fact){const q=document.createElement('small');q.textContent=' Источник: «'+fact.evidence+'»';label.append(q);}$('facts').append(label);});$('confirm').disabled=false;}catch(e){$('status').textContent=e.message;}finally{$('extract').disabled=false;}};
+$('confirm').onclick=async()=>{try{const facts=Object.fromEntries(fields.map(f=>[f,$(f).value]));const r=await api('/confirm',{session_id:sid,proposal_id:pid,facts});showDialog(r);$('confirm').disabled=true;}catch(e){$('result').textContent=e.message;}};
+
+function showDialog(r){
+ $('result').textContent=JSON.stringify(r,null,2);
+ const root=$('dialog');root.replaceChildren();
+ const h=document.createElement('h2');h.textContent=r.questions.length?'Нужно уточнение':'Наблюдения сохранены';root.append(h);
+ const summary=document.createElement('p');summary.textContent='Среда: '+r.mission_context.environment+'. '+fields.map((f,i)=>names[i]+': '+({yes:'да',no:'нет',unknown:'неизвестно'}[r.confirmed_facts[f]||'unknown'])).join(' · ');root.append(summary);
+ r.questions.forEach(q=>{
+  const box=document.createElement('div');const text=document.createElement('p');text.textContent=q.text;box.append(text);
+  if(q.field==='environment'){const hint=document.createElement('p');hint.textContent='Выберите среду вверху страницы и начните новый разбор.';box.append(hint);}
+  else {
+   const options=q.field==='normal_breathing'?[['yes','Дышит нормально'],['no','Не дышит / только судорожные вдохи'],['unknown','Не могу определить']]:[['yes','Реагирует'],['no','Не реагирует'],['unknown','Не могу определить']];
+   options.forEach(([value,label])=>{const b=document.createElement('button');b.textContent=label;b.onclick=async()=>{root.querySelectorAll('button').forEach(x=>x.disabled=true);try{const out=await api('/clarify',{session_id:sid,confirmation_id:r.confirmation_id,field:q.field,value});if($(q.field))$(q.field).value=value;showDialog(out);}catch(e){const err=document.createElement('p');err.textContent=e.message;root.append(err);}};box.append(b);});
+  }
+  root.append(box);
+ });
+ const preview=document.createElement('button');preview.textContent='Показать учебный сценарий';preview.onclick=async()=>{preview.disabled=true;try{const plan=await api('/scenario',{session_id:sid,confirmation_id:r.confirmation_id});renderPlan(plan,root);}catch(e){const err=document.createElement('p');err.textContent=e.message;root.append(err);}};root.append(preview);
+ const note=document.createElement('p');note.textContent='Сценарий — учебный обзор источников, не утверждённый бортовой протокол. Сохранение наблюдений не означает, что помощь оказана.';root.append(note);
+}
+
+function renderPlan(plan,root){
+ const section=document.createElement('section');const h=document.createElement('h2');h.textContent='Учебный сценарий · микрогравитация';section.append(h);
+ if(!plan.steps.length){const p=document.createElement('p');p.textContent='Этот сценарий охватывает только отсутствие реакции в микрогравитации. Для выбранной ситуации ветка не реализована.';section.append(p);}
+ const info=document.createElement('p');info.textContent=plan.communication_note||'';section.append(info);
+ for(const step of plan.steps){const card=document.createElement('div');card.style.cssText='border:1px solid #7398b8;padding:12px;margin:12px 0;border-radius:8px';const text=document.createElement('p');text.textContent=step.text;card.append(text);const a=document.createElement('a');a.textContent='Источник';a.href=plan.sources[step.source];a.target='_blank';a.rel='noopener noreferrer';a.style.color='#9dcaff';card.append(a);const b=document.createElement('button');b.textContent='Отметить выполнение в учебном эпизоде';b.onclick=async()=>{b.disabled=true;try{await api('/step',{session_id:sid,plan_id:plan.plan_id,step_id:step.id});b.textContent='Отмечено участником';}catch(e){b.textContent=e.message;}};card.append(b);section.append(card);}
+ for(const line of [...plan.limits,plan.microgravity_reference].filter(Boolean)){const p=document.createElement('p');p.textContent=line;section.append(p);}
+ const edit=document.createElement('button');edit.textContent='Состояние изменилось — новое сообщение';edit.onclick=()=>{$('text').focus();$('text').select();$('status').textContent='Введите новое состояние и нажмите «Разобрать сообщение». Предыдущие данные не заменяют повторной оценки.';};section.append(edit);root.append(section);
+}
+$('export').onclick=async()=>{try{await session();const r=await api('/export',{session_id:sid});const u=URL.createObjectURL(new Blob([JSON.stringify(r,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=u;a.download='crew-event-journal.json';a.click();URL.revokeObjectURL(u);}catch(e){$('result').textContent=e.message;}};
+</script></html>

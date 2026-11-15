@@ -1,0 +1,135 @@
+{
+  "at": "2026-11-14T19:11:02.264171+00:00",
+  "health": {
+    "server": "ok",
+    "stt": {
+      "ru": true,
+      "en": true
+    },
+    "stt_status": {
+      "ru": "ready",
+      "en": "ready"
+    },
+    "llm": {
+      "ready": true,
+      "model": "qwen3:4b",
+      "warm": true,
+      "status": "ready"
+    },
+    "clinical_protocol_enabled": false
+  },
+  "input_rate": 16000,
+  "output_rate": 16000,
+  "seconds": 7,
+  "rows": [
+    {
+      "lang": "ru",
+      "expected": "Он не отвечает, но дышит нормально.",
+      "recognized": "он не дышит он дышит нормально хорошо",
+      "ms": 865,
+      "human_meaning_review": "uncertain",
+      "input_overflow": false,
+      "wer": 0.5
+    },
+    {
+      "lang": "ru",
+      "expected": "Он не дышит, только отдельные судорожные вдохи.",
+      "recognized": "он не дыши",
+      "ms": 766,
+      "human_meaning_review": "uncertain",
+      "input_overflow": false,
+      "wer": 0.714
+    },
+    {
+      "lang": "ru",
+      "expected": "Боли в груди нет.",
+      "recognized": "боли в груди нет",
+      "ms": 753,
+      "human_meaning_review": "uncertain",
+      "input_overflow": false,
+      "wer": 0.0
+    },
+    {
+      "lang": "ru",
+      "expected": "Дефибриллятор разряжен.",
+      "recognized": "да разряжен",
+      "ms": 738,
+      "human_meaning_review": "uncertain",
+      "input_overflow": false,
+      "wer": 0.5
+    },
+    {
+      "lang": "ru",
+      "expected": "Кровотечения нет. Медик уже рядом.",
+      "recognized": "кровотечение нету",
+      "ms": 763,
+      "human_meaning_review": "uncertain",
+      "input_overflow": false,
+      "wer": 1.0
+    },
+    {
+      "lang": "ru",
+      "expected": "Он подавился куском пищи.",
+      "recognized": "вон подавился куском пищи",
+      "ms": 875,
+      "human_meaning_review": "uncertain",
+      "input_overflow": false,
+      "wer": 0.25
+    },
+    {
+      "lang": "en",
+      "expected": "He is unresponsive but breathing normally.",
+      "recognized": "he's unresponsive but briefing anomaly",
+      "ms": 1298,
+      "human_meaning_review": "uncertain",
+      "input_overflow": false,
+      "wer": 0.5
+    },
+    {
+      "lang": "en",
+      "expected": "He is not breathing, only gasping.",
+      "recognized": "he's not breathing only gasping",
+      "ms": 1107,
+      "human_meaning_review": "uncertain",
+      "input_overflow": false,
+      "wer": 0.167
+    },
+    {
+      "lang": "en",
+      "expected": "There is no chest pain.",
+      "recognized": "there is no chest pain",
+      "ms": 987,
+      "human_meaning_review": "uncertain",
+      "input_overflow": false,
+      "wer": 0.0
+    },
+    {
+      "lang": "en",
+      "expected": "The defibrillator battery is dead.",
+      "recognized": "the different later batteries that",
+      "ms": 1115,
+      "human_meaning_review": "uncertain",
+      "input_overflow": false,
+      "wer": 0.8
+    },
+    {
+      "lang": "en",
+      "expected": "There is no bleeding. The medic is here.",
+      "recognized": "there's no bleeding the medic is here",
+      "ms": 1132,
+      "human_meaning_review": "uncertain",
+      "input_overflow": false,
+      "wer": 0.125
+    },
+    {
+      "lang": "en",
+      "expected": "He is choking on food.",
+      "recognized": "he's choking on foot",
+      "ms": 953,
+      "human_meaning_review": "uncertain",
+      "input_overflow": false,
+      "wer": 0.4
+    }
+  ],
+  "note": "WER is lexical, not medical/semantic accuracy. Audio is not saved. human_meaning_review is manual."
+}

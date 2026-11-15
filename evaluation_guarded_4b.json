@@ -1,0 +1,277 @@
+{
+  "guard_version": "known-errors-2026-11-15-r2",
+  "passed_means": "Model output AFTER guards; raw_passed separately measures validated model output BEFORE guards. Critical metrics count field-level cases, not clinical outcomes.",
+  "prompt_version": "2026-11-15-ambiguity-r1",
+  "at": "2026-11-14T20:04:09.598616+00:00",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.9",
+  "timing": "Wall time per local extraction, includes Ollama prompt processing and decoding; startup probe excluded. May include validation and lock wait.",
+  "note": "Synthetic development suite, not clinical validation. Changed prompt/new fields require re-evaluation.",
+  "model": "qwen3:4b",
+  "status": "available",
+  "total": 30,
+  "tested": 30,
+  "passed": 30,
+  "raw_passed": 29,
+  "failed": [],
+  "raw_failed": [
+    {
+      "id": "ru_01",
+      "errors": {
+        "normal_breathing": {
+          "expected": "unknown",
+          "actual": "yes"
+        }
+      },
+      "actual": [
+        {
+          "field": "responsive",
+          "value": "no",
+          "evidence": "Он не отвечает"
+        },
+        {
+          "field": "normal_breathing",
+          "value": "yes",
+          "evidence": "дышит"
+        }
+      ]
+    }
+  ],
+  "guard_interventions": 1,
+  "critical_metrics": {
+    "raw": {
+      "no_to_yes": 0,
+      "unknown_to_yes": 1,
+      "no_to_unknown": 0
+    },
+    "guarded": {
+      "no_to_yes": 0,
+      "unknown_to_yes": 0,
+      "no_to_unknown": 0
+    }
+  },
+  "warmup_ms": 738,
+  "mean_ms": 2493,
+  "p50_ms": 2559,
+  "p95_ms": 4538,
+  "cases": [
+    {
+      "id": "ru_01",
+      "ms": 4279,
+      "passed": true,
+      "raw_passed": false,
+      "guard_warnings": [
+        {
+          "field": "normal_breathing",
+          "value": "unknown",
+          "evidence": "дышит",
+          "reason": "breath",
+          "original_value": "yes"
+        }
+      ]
+    },
+    {
+      "id": "ru_02",
+      "ms": 3849,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "ru_03",
+      "ms": 4088,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "ru_04",
+      "ms": 2653,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "ru_05",
+      "ms": 2758,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "ru_06",
+      "ms": 2915,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "ru_07",
+      "ms": 2771,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "ru_08",
+      "ms": 1068,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "ru_09",
+      "ms": 1020,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "ru_10",
+      "ms": 2619,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "ru_11",
+      "ms": 2478,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "ru_12",
+      "ms": 917,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "ru_13",
+      "ms": 4538,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "ru_14",
+      "ms": 1233,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "ru_15",
+      "ms": 1075,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "en_01",
+      "ms": 3857,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "en_02",
+      "ms": 4137,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "en_03",
+      "ms": 986,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "en_04",
+      "ms": 1073,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "en_05",
+      "ms": 5672,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "new_ru_01",
+      "ms": 2928,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "new_ru_02",
+      "ms": 2483,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "new_ru_03",
+      "ms": 2749,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "new_ru_04",
+      "ms": 2499,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "new_ru_05",
+      "ms": 1065,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "new_ru_06",
+      "ms": 948,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "new_en_01",
+      "ms": 1892,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "new_en_02",
+      "ms": 3789,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "new_en_03",
+      "ms": 1782,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "new_en_04",
+      "ms": 662,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{"id": "control_ru_01", "text": "Она дышит, качество дыхания не оценивали.", "expected": {"normal_breathing": "unknown"}}
+{"id": "control_ru_02", "text": "Дыхание ровное и нормальное, на голос реагирует.", "expected": {"normal_breathing": "yes", "responsive": "yes"}}
+{"id": "control_ru_03", "text": "Он не дышит и на обращение не реагирует.", "expected": {"normal_breathing": "no", "responsive": "no"}}
+{"id": "control_ru_04", "text": "Не знаю, есть ли боль в груди.", "expected": {"chest_pain": "unknown"}}
+{"id": "control_ru_05", "text": "Сейчас грудь не болит, вчера болела.", "expected": {"chest_pain": "no"}}
+{"id": "control_ru_06", "text": "Про кровотечение ничего не известно.", "expected": {"bleeding": "unknown"}}
+{"id": "control_ru_07", "text": "Кровь продолжает идти из пореза.", "expected": {"bleeding": "yes"}}
+{"id": "control_ru_08", "text": "Спящий человек лежит в каюте, реакцию не проверяли.", "expected": {"responsive": "unknown"}}
+{"id": "control_ru_09", "text": "Аппарат AED на складе. Заряд не проверяли.", "expected": {"aed_ready": "unknown"}}
+{"id": "control_ru_10", "text": "AED рядом, он исправен и готов.", "expected": {"aed_ready": "yes"}}
+{"id": "control_en_01", "text": "He is asleep; nobody has checked his response to voice.", "expected": {"responsive": "unknown"}}
+{"id": "control_en_02", "text": "I cannot tell whether her breathing is normal.", "expected": {"normal_breathing": "unknown"}}
+{"id": "control_en_03", "text": "The AED is in the storage bay. Nobody checked if it works.", "expected": {"aed_ready": "unknown"}}
+{"id": "control_en_04", "text": "She denies chest pain right now.", "expected": {"chest_pain": "no"}}
+{"id": "control_en_05", "text": "The wound is not bleeding now.", "expected": {"bleeding": "no"}}
+{"id": "control_en_06", "text": "He is only gasping and does not respond to touch.", "expected": {"normal_breathing": "no", "responsive": "no"}}
+{"id": "control_en_07", "text": "I do not know if he choked on anything.", "expected": {"choking": "unknown"}}
+{"id": "control_en_08", "text": "She choked on a piece of bread.", "expected": {"choking": "yes"}}
+{"id": "control_en_09", "text": "The medic is on the way, not here yet.", "expected": {"medic_present": "no"}}
+{"id": "control_en_10", "text": "He is breathing. I have no other information.", "expected": {"normal_breathing": "unknown"}}

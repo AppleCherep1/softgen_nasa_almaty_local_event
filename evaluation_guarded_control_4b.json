@@ -1,0 +1,303 @@
+{
+  "guard_version": "known-errors-2026-11-15-r2",
+  "passed_means": "Model output AFTER guards; raw_passed separately measures validated model output BEFORE guards. Critical metrics count field-level cases, not clinical outcomes.",
+  "prompt_version": "2026-11-15-ambiguity-r1",
+  "at": "2026-11-14T20:04:55.821420+00:00",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.9",
+  "timing": "Wall time per local extraction, includes Ollama prompt processing and decoding; startup probe excluded. May include validation and lock wait.",
+  "note": "Synthetic development suite, not clinical validation. Changed prompt/new fields require re-evaluation.",
+  "model": "qwen3:4b",
+  "status": "available",
+  "total": 20,
+  "tested": 20,
+  "passed": 19,
+  "raw_passed": 16,
+  "failed": [
+    {
+      "id": "control_en_06",
+      "ms": 2562,
+      "passed": false,
+      "raw_passed": false,
+      "guard_warnings": [
+        {
+          "field": "normal_breathing",
+          "value": "unknown",
+          "evidence": "only gasping",
+          "reason": "missing_critical",
+          "original_value": "omitted"
+        }
+      ],
+      "errors": {
+        "normal_breathing": {
+          "expected": "no",
+          "actual": "unknown"
+        }
+      },
+      "actual": [
+        {
+          "field": "responsive",
+          "value": "no",
+          "evidence": "does not respond to touch"
+        }
+      ]
+    }
+  ],
+  "raw_failed": [
+    {
+      "id": "control_ru_01",
+      "errors": {
+        "normal_breathing": {
+          "expected": "unknown",
+          "actual": "no"
+        }
+      },
+      "actual": [
+        {
+          "field": "normal_breathing",
+          "value": "no",
+          "evidence": "качество дыхания не оценивали"
+        }
+      ]
+    },
+    {
+      "id": "control_en_01",
+      "errors": {
+        "responsive": {
+          "expected": "unknown",
+          "actual": "no"
+        }
+      },
+      "actual": [
+        {
+          "field": "responsive",
+          "value": "no",
+          "evidence": "He is asleep"
+        }
+      ]
+    },
+    {
+      "id": "control_en_06",
+      "errors": {
+        "normal_breathing": {
+          "expected": "no",
+          "actual": "unknown"
+        }
+      },
+      "actual": [
+        {
+          "field": "responsive",
+          "value": "no",
+          "evidence": "does not respond to touch"
+        }
+      ]
+    },
+    {
+      "id": "control_en_10",
+      "errors": {
+        "normal_breathing": {
+          "expected": "unknown",
+          "actual": "yes"
+        }
+      },
+      "actual": [
+        {
+          "field": "normal_breathing",
+          "value": "yes",
+          "evidence": "He is breathing"
+        }
+      ]
+    }
+  ],
+  "guard_interventions": 4,
+  "critical_metrics": {
+    "raw": {
+      "no_to_yes": 0,
+      "unknown_to_yes": 1,
+      "no_to_unknown": 1
+    },
+    "guarded": {
+      "no_to_yes": 0,
+      "unknown_to_yes": 0,
+      "no_to_unknown": 1
+    }
+  },
+  "warmup_ms": 534,
+  "mean_ms": 2268,
+  "p50_ms": 2546,
+  "p95_ms": 4429,
+  "cases": [
+    {
+      "id": "control_ru_01",
+      "ms": 3014,
+      "passed": true,
+      "raw_passed": false,
+      "guard_warnings": [
+        {
+          "field": "normal_breathing",
+          "value": "unknown",
+          "evidence": "качество дыхания не оценивали",
+          "reason": "unsure",
+          "original_value": "no"
+        }
+      ]
+    },
+    {
+      "id": "control_ru_02",
+      "ms": 4489,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_ru_03",
+      "ms": 4429,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_ru_04",
+      "ms": 1105,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_ru_05",
+      "ms": 2754,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_ru_06",
+      "ms": 868,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_ru_07",
+      "ms": 2901,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_ru_08",
+      "ms": 1278,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_ru_09",
+      "ms": 1194,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_ru_10",
+      "ms": 2817,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_en_01",
+      "ms": 2530,
+      "passed": true,
+      "raw_passed": false,
+      "guard_warnings": [
+        {
+          "field": "responsive",
+          "value": "unknown",
+          "evidence": "He is asleep",
+          "reason": "react",
+          "original_value": "no"
+        }
+      ]
+    },
+    {
+      "id": "control_en_02",
+      "ms": 827,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_en_03",
+      "ms": 1060,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_en_04",
+      "ms": 2577,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_en_05",
+      "ms": 2501,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_en_06",
+      "ms": 2562,
+      "passed": false,
+      "raw_passed": false,
+      "guard_warnings": [
+        {
+          "field": "normal_breathing",
+          "value": "unknown",
+          "evidence": "only gasping",
+          "reason": "missing_critical",
+          "original_value": "omitted"
+        }
+      ]
+    },
+    {
+      "id": "control_en_07",
+      "ms": 1037,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_en_08",
+      "ms": 1911,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_en_09",
+      "ms": 2895,
+      "passed": true,
+      "raw_passed": true,
+      "guard_warnings": []
+    },
+    {
+      "id": "control_en_10",
+      "ms": 2609,
+      "passed": true,
+      "raw_passed": false,
+      "guard_warnings": [
+        {
+          "field": "normal_breathing",
+          "value": "unknown",
+          "evidence": "He is breathing",
+          "reason": "breath",
+          "original_value": "yes"
+        }
+      ]
+    }
+  ]
+}

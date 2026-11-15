@@ -1,0 +1,514 @@
+{
+  "at": "2026-11-14T19:24:50.493268+00:00",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.9",
+  "timing": "Wall time per local extraction, includes Ollama prompt processing and decoding; startup probe excluded. May include validation and lock wait.",
+  "note": "Synthetic development suite, not clinical validation. Changed prompt/new fields require re-evaluation.",
+  "models": [
+    {
+      "model": "qwen3:4b",
+      "status": "available",
+      "total": 30,
+      "tested": 30,
+      "passed": 25,
+      "failed": [
+        {
+          "id": "ru_01",
+          "ms": 11787,
+          "passed": false,
+          "errors": {
+            "normal_breathing": {
+              "expected": "unknown",
+              "actual": "yes"
+            }
+          },
+          "actual": [
+            {
+              "field": "responsive",
+              "value": "no",
+              "evidence": "Он не отвечает"
+            },
+            {
+              "field": "normal_breathing",
+              "value": "yes",
+              "evidence": "дышит"
+            }
+          ]
+        },
+        {
+          "id": "ru_09",
+          "ms": 2443,
+          "passed": false,
+          "errors": {
+            "chest_pain": {
+              "expected": "unknown",
+              "actual": "no"
+            }
+          },
+          "actual": [
+            {
+              "field": "chest_pain",
+              "value": "no",
+              "evidence": "сейчас не знаю"
+            }
+          ]
+        },
+        {
+          "id": "ru_12",
+          "ms": 2249,
+          "passed": false,
+          "errors": {
+            "responsive": {
+              "expected": "unknown",
+              "actual": "no"
+            }
+          },
+          "actual": [
+            {
+              "field": "responsive",
+              "value": "no",
+              "evidence": "Он просто спит."
+            }
+          ]
+        },
+        {
+          "id": "en_04",
+          "ms": 2580,
+          "passed": false,
+          "errors": {
+            "aed_ready": {
+              "expected": "unknown",
+              "actual": "no"
+            }
+          },
+          "actual": [
+            {
+              "field": "aed_ready",
+              "value": "no",
+              "evidence": "There is an AED in another module"
+            }
+          ]
+        },
+        {
+          "id": "new_ru_05",
+          "ms": 2423,
+          "passed": false,
+          "errors": {
+            "bleeding": {
+              "expected": "unknown",
+              "actual": "no"
+            }
+          },
+          "actual": [
+            {
+              "field": "bleeding",
+              "value": "no",
+              "evidence": "сейчас не знаю"
+            }
+          ]
+        }
+      ],
+      "warmup_ms": 610,
+      "mean_ms": 2889,
+      "p50_ms": 2474,
+      "p95_ms": 5700,
+      "cases": [
+        {
+          "id": "ru_01",
+          "ms": 11787,
+          "passed": false
+        },
+        {
+          "id": "ru_02",
+          "ms": 3790,
+          "passed": true
+        },
+        {
+          "id": "ru_03",
+          "ms": 4021,
+          "passed": true
+        },
+        {
+          "id": "ru_04",
+          "ms": 2483,
+          "passed": true
+        },
+        {
+          "id": "ru_05",
+          "ms": 2716,
+          "passed": true
+        },
+        {
+          "id": "ru_06",
+          "ms": 2807,
+          "passed": true
+        },
+        {
+          "id": "ru_07",
+          "ms": 2659,
+          "passed": true
+        },
+        {
+          "id": "ru_08",
+          "ms": 1021,
+          "passed": true
+        },
+        {
+          "id": "ru_09",
+          "ms": 2443,
+          "passed": false
+        },
+        {
+          "id": "ru_10",
+          "ms": 2466,
+          "passed": true
+        },
+        {
+          "id": "ru_11",
+          "ms": 2333,
+          "passed": true
+        },
+        {
+          "id": "ru_12",
+          "ms": 2249,
+          "passed": false
+        },
+        {
+          "id": "ru_13",
+          "ms": 4469,
+          "passed": true
+        },
+        {
+          "id": "ru_14",
+          "ms": 1070,
+          "passed": true
+        },
+        {
+          "id": "ru_15",
+          "ms": 862,
+          "passed": true
+        },
+        {
+          "id": "en_01",
+          "ms": 3683,
+          "passed": true
+        },
+        {
+          "id": "en_02",
+          "ms": 3871,
+          "passed": true
+        },
+        {
+          "id": "en_03",
+          "ms": 900,
+          "passed": true
+        },
+        {
+          "id": "en_04",
+          "ms": 2580,
+          "passed": false
+        },
+        {
+          "id": "en_05",
+          "ms": 5700,
+          "passed": true
+        },
+        {
+          "id": "new_ru_01",
+          "ms": 2828,
+          "passed": true
+        },
+        {
+          "id": "new_ru_02",
+          "ms": 2405,
+          "passed": true
+        },
+        {
+          "id": "new_ru_03",
+          "ms": 2644,
+          "passed": true
+        },
+        {
+          "id": "new_ru_04",
+          "ms": 2412,
+          "passed": true
+        },
+        {
+          "id": "new_ru_05",
+          "ms": 2423,
+          "passed": false
+        },
+        {
+          "id": "new_ru_06",
+          "ms": 788,
+          "passed": true
+        },
+        {
+          "id": "new_en_01",
+          "ms": 2382,
+          "passed": true
+        },
+        {
+          "id": "new_en_02",
+          "ms": 3641,
+          "passed": true
+        },
+        {
+          "id": "new_en_03",
+          "ms": 2335,
+          "passed": true
+        },
+        {
+          "id": "new_en_04",
+          "ms": 896,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "model": "qwen3:1.7b",
+      "status": "available",
+      "total": 30,
+      "tested": 30,
+      "passed": 24,
+      "failed": [
+        {
+          "id": "ru_01",
+          "ms": 4170,
+          "passed": false,
+          "errors": {
+            "normal_breathing": {
+              "expected": "unknown",
+              "actual": "yes"
+            }
+          },
+          "actual": [
+            {
+              "field": "responsive",
+              "value": "no",
+              "evidence": "Он не отвечает"
+            },
+            {
+              "field": "normal_breathing",
+              "value": "yes",
+              "evidence": "дышит"
+            }
+          ]
+        },
+        {
+          "id": "ru_08",
+          "ms": 542,
+          "passed": false,
+          "errors": {
+            "aed_ready": {
+              "expected": "unknown",
+              "actual": "yes"
+            }
+          },
+          "actual": [
+            {
+              "field": "aed_ready",
+              "value": "yes",
+              "evidence": "У нас есть дефибриллятор"
+            }
+          ]
+        },
+        {
+          "id": "en_04",
+          "ms": 597,
+          "passed": false,
+          "errors": {
+            "backend_error": "Local model unavailable or invalid response; use manual confirmation."
+          },
+          "actual": null
+        },
+        {
+          "id": "en_05",
+          "ms": 1155,
+          "passed": false,
+          "errors": {
+            "backend_error": "Local model unavailable or invalid response; use manual confirmation."
+          },
+          "actual": null
+        },
+        {
+          "id": "new_ru_03",
+          "ms": 541,
+          "passed": false,
+          "errors": {
+            "backend_error": "Local model unavailable or invalid response; use manual confirmation."
+          },
+          "actual": null
+        },
+        {
+          "id": "new_ru_04",
+          "ms": 210,
+          "passed": false,
+          "errors": {
+            "choking": {
+              "expected": "no",
+              "actual": "unknown"
+            }
+          },
+          "actual": []
+        }
+      ],
+      "warmup_ms": 4739,
+      "mean_ms": 648,
+      "p50_ms": 542,
+      "p95_ms": 1155,
+      "cases": [
+        {
+          "id": "ru_01",
+          "ms": 4170,
+          "passed": false
+        },
+        {
+          "id": "ru_02",
+          "ms": 832,
+          "passed": true
+        },
+        {
+          "id": "ru_03",
+          "ms": 881,
+          "passed": true
+        },
+        {
+          "id": "ru_04",
+          "ms": 543,
+          "passed": true
+        },
+        {
+          "id": "ru_05",
+          "ms": 566,
+          "passed": true
+        },
+        {
+          "id": "ru_06",
+          "ms": 599,
+          "passed": true
+        },
+        {
+          "id": "ru_07",
+          "ms": 553,
+          "passed": true
+        },
+        {
+          "id": "ru_08",
+          "ms": 542,
+          "passed": false
+        },
+        {
+          "id": "ru_09",
+          "ms": 235,
+          "passed": true
+        },
+        {
+          "id": "ru_10",
+          "ms": 542,
+          "passed": true
+        },
+        {
+          "id": "ru_11",
+          "ms": 515,
+          "passed": true
+        },
+        {
+          "id": "ru_12",
+          "ms": 193,
+          "passed": true
+        },
+        {
+          "id": "ru_13",
+          "ms": 925,
+          "passed": true
+        },
+        {
+          "id": "ru_14",
+          "ms": 231,
+          "passed": true
+        },
+        {
+          "id": "ru_15",
+          "ms": 209,
+          "passed": true
+        },
+        {
+          "id": "en_01",
+          "ms": 811,
+          "passed": true
+        },
+        {
+          "id": "en_02",
+          "ms": 823,
+          "passed": true
+        },
+        {
+          "id": "en_03",
+          "ms": 213,
+          "passed": true
+        },
+        {
+          "id": "en_04",
+          "ms": 597,
+          "passed": false
+        },
+        {
+          "id": "en_05",
+          "ms": 1155,
+          "passed": false
+        },
+        {
+          "id": "new_ru_01",
+          "ms": 623,
+          "passed": true
+        },
+        {
+          "id": "new_ru_02",
+          "ms": 514,
+          "passed": true
+        },
+        {
+          "id": "new_ru_03",
+          "ms": 541,
+          "passed": false
+        },
+        {
+          "id": "new_ru_04",
+          "ms": 210,
+          "passed": false
+        },
+        {
+          "id": "new_ru_05",
+          "ms": 210,
+          "passed": true
+        },
+        {
+          "id": "new_ru_06",
+          "ms": 208,
+          "passed": true
+        },
+        {
+          "id": "new_en_01",
+          "ms": 540,
+          "passed": true
+        },
+        {
+          "id": "new_en_02",
+          "ms": 760,
+          "passed": true
+        },
+        {
+          "id": "new_en_03",
+          "ms": 501,
+          "passed": true
+        },
+        {
+          "id": "new_en_04",
+          "ms": 192,
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

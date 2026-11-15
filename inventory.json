@@ -1,0 +1,20 @@
+{
+  "status": "unconfigured",
+  "environment": "unknown",
+  "items": [],
+  "crew": [],
+  "note": "Заполнить фактический состав. Пустой список означает неизвестный инвентарь, а не отсутствие всех аппаратов.",
+  "item_schema_example_only": {
+    "id": "example-not-real",
+    "name": "Название",
+    "model": "Точная модель",
+    "location": "Место",
+    "availability": "unknown",
+    "operational": "unknown",
+    "battery": "unknown",
+    "consumables": "unknown",
+    "trained_crew_ids": [],
+    "manual_local_path": null,
+    "verified_at": null
+  }
+}

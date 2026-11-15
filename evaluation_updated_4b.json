@@ -1,0 +1,194 @@
+{
+  "prompt_version": "2026-11-15-ambiguity-r1",
+  "at": "2026-11-14T19:38:08.939050+00:00",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.9",
+  "timing": "Wall time per local extraction, includes Ollama prompt processing and decoding; startup probe excluded. May include validation and lock wait.",
+  "note": "Synthetic development suite, not clinical validation. Changed prompt/new fields require re-evaluation.",
+  "model": "qwen3:4b",
+  "status": "available",
+  "total": 30,
+  "tested": 30,
+  "passed": 29,
+  "failed": [
+    {
+      "id": "ru_01",
+      "ms": 13035,
+      "passed": false,
+      "errors": {
+        "normal_breathing": {
+          "expected": "unknown",
+          "actual": "yes"
+        }
+      },
+      "actual": [
+        {
+          "field": "responsive",
+          "value": "no",
+          "evidence": "Он не отвечает"
+        },
+        {
+          "field": "normal_breathing",
+          "value": "yes",
+          "evidence": "дышит"
+        }
+      ]
+    }
+  ],
+  "warmup_ms": 7497,
+  "mean_ms": 2889,
+  "p50_ms": 2623,
+  "p95_ms": 6186,
+  "cases": [
+    {
+      "id": "ru_01",
+      "ms": 13035,
+      "passed": false
+    },
+    {
+      "id": "ru_02",
+      "ms": 4136,
+      "passed": true
+    },
+    {
+      "id": "ru_03",
+      "ms": 4287,
+      "passed": true
+    },
+    {
+      "id": "ru_04",
+      "ms": 2828,
+      "passed": true
+    },
+    {
+      "id": "ru_05",
+      "ms": 2925,
+      "passed": true
+    },
+    {
+      "id": "ru_06",
+      "ms": 3180,
+      "passed": true
+    },
+    {
+      "id": "ru_07",
+      "ms": 2980,
+      "passed": true
+    },
+    {
+      "id": "ru_08",
+      "ms": 1144,
+      "passed": true
+    },
+    {
+      "id": "ru_09",
+      "ms": 1038,
+      "passed": true
+    },
+    {
+      "id": "ru_10",
+      "ms": 2647,
+      "passed": true
+    },
+    {
+      "id": "ru_11",
+      "ms": 2599,
+      "passed": true
+    },
+    {
+      "id": "ru_12",
+      "ms": 966,
+      "passed": true
+    },
+    {
+      "id": "ru_13",
+      "ms": 4771,
+      "passed": true
+    },
+    {
+      "id": "ru_14",
+      "ms": 1403,
+      "passed": true
+    },
+    {
+      "id": "ru_15",
+      "ms": 1158,
+      "passed": true
+    },
+    {
+      "id": "en_01",
+      "ms": 3879,
+      "passed": true
+    },
+    {
+      "id": "en_02",
+      "ms": 4318,
+      "passed": true
+    },
+    {
+      "id": "en_03",
+      "ms": 1073,
+      "passed": true
+    },
+    {
+      "id": "en_04",
+      "ms": 1152,
+      "passed": true
+    },
+    {
+      "id": "en_05",
+      "ms": 6186,
+      "passed": true
+    },
+    {
+      "id": "new_ru_01",
+      "ms": 3023,
+      "passed": true
+    },
+    {
+      "id": "new_ru_02",
+      "ms": 2554,
+      "passed": true
+    },
+    {
+      "id": "new_ru_03",
+      "ms": 2770,
+      "passed": true
+    },
+    {
+      "id": "new_ru_04",
+      "ms": 2505,
+      "passed": true
+    },
+    {
+      "id": "new_ru_05",
+      "ms": 1071,
+      "passed": true
+    },
+    {
+      "id": "new_ru_06",
+      "ms": 996,
+      "passed": true
+    },
+    {
+      "id": "new_en_01",
+      "ms": 1867,
+      "passed": true
+    },
+    {
+      "id": "new_en_02",
+      "ms": 3730,
+      "passed": true
+    },
+    {
+      "id": "new_en_03",
+      "ms": 1782,
+      "passed": true
+    },
+    {
+      "id": "new_en_04",
+      "ms": 669,
+      "passed": true
+    }
+  ]
+}

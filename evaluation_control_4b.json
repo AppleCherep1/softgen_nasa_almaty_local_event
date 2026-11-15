@@ -1,0 +1,193 @@
+{
+  "prompt_version": "2026-11-15-ambiguity-r1",
+  "at": "2026-11-14T19:39:56.452376+00:00",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.9",
+  "timing": "Wall time per local extraction, includes Ollama prompt processing and decoding; startup probe excluded. May include validation and lock wait.",
+  "note": "Synthetic development suite, not clinical validation. Changed prompt/new fields require re-evaluation.",
+  "model": "qwen3:4b",
+  "status": "available",
+  "total": 20,
+  "tested": 20,
+  "passed": 16,
+  "failed": [
+    {
+      "id": "control_ru_01",
+      "ms": 3010,
+      "passed": false,
+      "errors": {
+        "normal_breathing": {
+          "expected": "unknown",
+          "actual": "no"
+        }
+      },
+      "actual": [
+        {
+          "field": "normal_breathing",
+          "value": "no",
+          "evidence": "качество дыхания не оценивали"
+        }
+      ]
+    },
+    {
+      "id": "control_en_01",
+      "ms": 2519,
+      "passed": false,
+      "errors": {
+        "responsive": {
+          "expected": "unknown",
+          "actual": "no"
+        }
+      },
+      "actual": [
+        {
+          "field": "responsive",
+          "value": "no",
+          "evidence": "He is asleep"
+        }
+      ]
+    },
+    {
+      "id": "control_en_06",
+      "ms": 2560,
+      "passed": false,
+      "errors": {
+        "normal_breathing": {
+          "expected": "no",
+          "actual": "unknown"
+        }
+      },
+      "actual": [
+        {
+          "field": "responsive",
+          "value": "no",
+          "evidence": "does not respond to touch"
+        }
+      ]
+    },
+    {
+      "id": "control_en_10",
+      "ms": 2592,
+      "passed": false,
+      "errors": {
+        "normal_breathing": {
+          "expected": "unknown",
+          "actual": "yes"
+        }
+      },
+      "actual": [
+        {
+          "field": "normal_breathing",
+          "value": "yes",
+          "evidence": "He is breathing"
+        }
+      ]
+    }
+  ],
+  "warmup_ms": 760,
+  "mean_ms": 2259,
+  "p50_ms": 2500,
+  "p95_ms": 4458,
+  "cases": [
+    {
+      "id": "control_ru_01",
+      "ms": 3010,
+      "passed": false
+    },
+    {
+      "id": "control_ru_02",
+      "ms": 4459,
+      "passed": true
+    },
+    {
+      "id": "control_ru_03",
+      "ms": 4458,
+      "passed": true
+    },
+    {
+      "id": "control_ru_04",
+      "ms": 1169,
+      "passed": true
+    },
+    {
+      "id": "control_ru_05",
+      "ms": 2813,
+      "passed": true
+    },
+    {
+      "id": "control_ru_06",
+      "ms": 865,
+      "passed": true
+    },
+    {
+      "id": "control_ru_07",
+      "ms": 2833,
+      "passed": true
+    },
+    {
+      "id": "control_ru_08",
+      "ms": 1258,
+      "passed": true
+    },
+    {
+      "id": "control_ru_09",
+      "ms": 1289,
+      "passed": true
+    },
+    {
+      "id": "control_ru_10",
+      "ms": 2770,
+      "passed": true
+    },
+    {
+      "id": "control_en_01",
+      "ms": 2519,
+      "passed": false
+    },
+    {
+      "id": "control_en_02",
+      "ms": 826,
+      "passed": true
+    },
+    {
+      "id": "control_en_03",
+      "ms": 1058,
+      "passed": true
+    },
+    {
+      "id": "control_en_04",
+      "ms": 2482,
+      "passed": true
+    },
+    {
+      "id": "control_en_05",
+      "ms": 2434,
+      "passed": true
+    },
+    {
+      "id": "control_en_06",
+      "ms": 2560,
+      "passed": false
+    },
+    {
+      "id": "control_en_07",
+      "ms": 1009,
+      "passed": true
+    },
+    {
+      "id": "control_en_08",
+      "ms": 1880,
+      "passed": true
+    },
+    {
+      "id": "control_en_09",
+      "ms": 2894,
+      "passed": true
+    },
+    {
+      "id": "control_en_10",
+      "ms": 2592,
+      "passed": false
+    }
+  ]
+}

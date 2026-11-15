@@ -1,0 +1,37 @@
+{
+  "at": "2026-11-14T16:13:12.786074+00:00",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "python": "3.12.14",
+  "timing": "Wall time per local extraction, includes Ollama prompt processing and decoding; startup probe excluded. May include validation and lock wait.",
+  "note": "Synthetic development suite, not clinical validation. Changed prompt/new fields require re-evaluation.",
+  "models": [
+    {
+      "model": "qwen3:4b",
+      "status": "unavailable",
+      "total": 30,
+      "tested": 0,
+      "passed": 0,
+      "failed": [],
+      "warmup_ms": null,
+      "mean_ms": null,
+      "p50_ms": null,
+      "p95_ms": null,
+      "cases": [],
+      "reason": "Local Ollama probe failed; no real latency or accuracy measured."
+    },
+    {
+      "model": "qwen3:1.7b",
+      "status": "unavailable",
+      "total": 30,
+      "tested": 0,
+      "passed": 0,
+      "failed": [],
+      "warmup_ms": null,
+      "mean_ms": null,
+      "p50_ms": null,
+      "p95_ms": null,
+      "cases": [],
+      "reason": "Local Ollama probe failed; no real latency or accuracy measured."
+    }
+  ]
+}

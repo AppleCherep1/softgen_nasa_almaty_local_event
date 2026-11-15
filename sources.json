@@ -1,0 +1,51 @@
+{
+  "checked_date": "2026-11-14",
+  "offline_content": "Local summaries and bibliographic metadata only; linked full documents are NOT bundled.",
+  "sources": [
+    {
+      "id": "nasa_cdss_conops",
+      "publisher": "NASA NTRS",
+      "title": "Exploration Medical Capability Clinical Decision Support System Concept of Operations",
+      "url": "https://ntrs.nasa.gov/citations/20220017856",
+      "role": "architecture_context",
+      "summary_ru": "Бортовая поддержка решений должна учитывать задержки и отсутствие связи, историю состояния, оборудование, расходники и ограничения миссии.",
+      "not_a_treatment_protocol": true
+    },
+    {
+      "id": "nasa_eimo",
+      "publisher": "NASA",
+      "title": "A Clinical Decision Support System for Earth-independent Medical Operations",
+      "url": "https://www.nasa.gov/centers-and-facilities/ames/ames-science/ames-space-biosciences/a-clinical-decision-support-system-for-earth-independent-medical-operations/",
+      "role": "architecture_context",
+      "summary_ru": "NASA исследует цифровую поддержку самостоятельных медицинских действий экипажа при задержках и нарушениях связи.",
+      "not_a_treatment_protocol": true
+    },
+    {
+      "id": "nasa_orthostatic",
+      "publisher": "NASA",
+      "title": "Fundamentals of Human Health — Orthostatic Intolerance",
+      "url": "https://www.nasa.gov/reference/fundamentals-of-human-health/",
+      "role": "physiology_context",
+      "summary_ru": "Ортостатическая непереносимость связана с возвращением в гравитационную среду после микрогравитации; существенны вертикальное положение и ускорения. Земную пробу стоя нельзя автоматически переносить на невесомость.",
+      "not_a_treatment_protocol": true
+    },
+    {
+      "id": "micro_cpr_2020",
+      "publisher": "DGLRM / ESAM-SMG",
+      "title": "Cardiopulmonary resuscitation during spaceflight — guideline for CPR in microgravity (2020)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7607644/",
+      "role": "published_microgravity_recommendations",
+      "summary_ru": "Руководство описывает ранний вызов помощи, специальные методы компрессий и ограничения применения дефибриллятора в микрогравитации. Это публикация 2020 года, не подтверждение одобрения нашего приложения для полёта.",
+      "not_a_treatment_protocol": false
+    },
+    {
+      "id": "redcross_breathing",
+      "publisher": "American Red Cross",
+      "title": "Unresponsive and Breathing Person",
+      "url": "https://www.redcross.org/take-a-class/resources/learn-first-aid/unresponsive-and-breathing-person",
+      "role": "terrestrial_general_principles",
+      "summary_ru": "Общие принципы помощи по уровню подготовки и повторного наблюдения за реакцией и дыханием. Земные рекомендации о положении тела не включены в микрогравитационную ветку.",
+      "not_a_treatment_protocol": false
+    }
+  ]
+}
